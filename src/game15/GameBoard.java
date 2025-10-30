@@ -12,7 +12,7 @@ public class GameBoard {
 
     // Sätter ut alla brickor 0-14 och en tom ruta
     public void setupBoard() {
-        int number = 1;
+        int number = 1; // 1-15
 
         for (int row = 0; row < 4; row++) {
             for (int column = 0; column < 4; column++) {
@@ -57,4 +57,19 @@ public class GameBoard {
 
         else return false;
     }
+
+    // Flytta brickan till tom ruta om giltigt
+    public void moveTile(int row, int column) {
+        if (isValidMove(row, column)) {
+
+            // Byt plats på brickan och tom ruta
+            board[rowEmpty][columnEmpty] = board[row][column];
+            board[row][column] = null;
+
+            // Uppdatera var tom ruta är
+            rowEmpty = row;
+            columnEmpty = column;
+        }
+    }
 }
+
