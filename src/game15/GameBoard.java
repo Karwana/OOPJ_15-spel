@@ -10,7 +10,7 @@ public class GameBoard {
         setupBoard();
     }
     public void setupBoard() {
-        int number = 1;
+        int number = 0;
 
         for (int row = 0; row < 4; row++) {
             for (int column = 0; column < 4; column++) {
@@ -20,8 +20,11 @@ public class GameBoard {
                     rowEmpty = 3;
                     columnEmpty = 3;
                 }
+                else {
+                    board[row][column] = new Tile(number);
+                    number = number + 1;
+                }
             }
         }
     }
-
 }
