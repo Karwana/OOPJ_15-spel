@@ -31,7 +31,30 @@ public class GameBoard {
             }
         }
     }
+
     public Tile getTile(int row, int column) {
         return board[row][column];
+    }
+
+    // Bricka bredvid tom ruta = giltigt
+    public boolean isValidMove(int row, int column) {
+
+        // ovanför
+        if (row == rowEmpty - 1 && column == columnEmpty)
+            return true;
+
+        // under
+        else if (row == rowEmpty + 1 && column == columnEmpty)
+            return true;
+
+        // vänster
+        else if (row == rowEmpty && column == columnEmpty - 1)
+            return true;
+
+        // höger
+        else if (row == rowEmpty && column == columnEmpty + 1)
+            return true;
+
+        else return false;
     }
 }
