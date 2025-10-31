@@ -90,6 +90,48 @@ public class Tile {
 
         return new int []{correctRow, correctCol};
     }
+    // Override metoder
+    @Override
+    public String toString(){
+        if (isEmpty()){
+            return "[ ]";
+        }
+        return "[" + (number < 10 ? " " : "") + number + "]";
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Tile tile = (Tile) obj;
+        return number == tile.number &&
+                row == tile.row &&
+                col == tile.col;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = number;
+        result = 31 * result + row;
+        result = 31 * result + col;
+        return result;
+    }
+    // Kopiera en bricka (metod)
+    public Tile copy() {
+        return new Tile(this.number, this.row, this.col);
+    }
+    // Debug Metod
+    public String getDetailedInfo() {
+        return String.format("Tile %d at position (%d,%d)%s%s",
+                number,
+                row,
+                col,
+                isEmpty() ? "[EMPTY]" : "",
+                isInCorrectPosition() ? "[CORRECT POSITION]" : "");
+    }
+
+
+
 
 
 
