@@ -1,9 +1,11 @@
 package game15;
 
+import java.util.Random;
+
 public class GameBoard {
     private Tile[][] board;
-    private int rowEmpty;
-    private int columnEmpty;
+    private int emptyRow;
+    private int emptyColumn;
 
     public GameBoard() {
         board = new Tile[4][4]; // // Skapa 4x4 rutnät
@@ -20,12 +22,12 @@ public class GameBoard {
                 // Sista rutan (3,3) ska vara tom
                 if (row == 3 && column == 3) {
                     board[row][column] = null;
-                    rowEmpty = 3;
-                    columnEmpty = 3;
+                    emptyRow = 3;
+                    emptyColumn = 3;
                 }
                 // Alla andra får en bricka
                 else {
-                    board[row][column] = new Tile(number);
+                    board[row][column] = new Tile(number, row, column);
                     number = number + 1;
                 }
             }
@@ -40,19 +42,19 @@ public class GameBoard {
     public boolean isValidMove(int row, int column) {
 
         // ovanför
-        if (row == rowEmpty - 1 && column == columnEmpty)
+        if (row == emptyRow - 1 && column == emptyColumn)
             return true;
 
         // under
-        else if (row == rowEmpty + 1 && column == columnEmpty)
+        else if (row == emptyRow + 1 && column == emptyColumn)
             return true;
 
         // vänster
-        else if (row == rowEmpty && column == columnEmpty - 1)
+        else if (row == emptyRow && column == emptyColumn - 1)
             return true;
 
         // höger
-        else if (row == rowEmpty && column == columnEmpty + 1)
+        else if (row == emptyRow && column == emptyColumn + 1)
             return true;
 
         else return false;
@@ -63,13 +65,55 @@ public class GameBoard {
         if (isValidMove(row, column)) {
 
             // Byt plats på brickan och tom ruta
-            board[rowEmpty][columnEmpty] = board[row][column];
+            board[emptyRow][emptyColumn] = board[row][column];
+            board[emptyRow][emptyColumn].setPosition(emptyRow, emptyColumn);
             board[row][column] = null;
 
             // Uppdatera var tom ruta är
-            rowEmpty = row;
-            columnEmpty = column;
+            emptyRow = row;
+            emptyColumn = column;
         }
+    }
+
+    // Blandar brickorna
+    public void shuffle() {
+        Random random = new Random();
+        // Gör 100 slumpmässiga förflyttningar
+        for (int i = 0; i < 100; i++) {
+            int direction   = random.nextInt(4); // 0=upp, 1=ner, 2=vänster, 3=höger
+
+            if (direction   == 0) {
+                moveTile(emptyRow - 1, emptyColumn);
+            }
+            else if (direction   == 1) {
+                moveTile(emptyRow + 1, emptyColumn);
+            }
+            else if (direction   == 2) {
+                moveTile(emptyRow, emptyColumn - 1);
+            }
+            else {
+                moveTile(emptyRow, emptyColumn + 1);
+            }
+        }
+    }
+
+    public boolean isGameWon() {
+        // Kolla alla brickor
+        for (int row = 0; row < 4; row++) {
+            for (int column = 0; column < 4; column++) {
+
+                // Hoppa över tom ruta
+                if (row == 3 && column == 3) {
+                    continue;
+                }
+
+                // Använd Tile-klassens metod
+                if (!board[row][column].isInCorrectPosition()) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
 
