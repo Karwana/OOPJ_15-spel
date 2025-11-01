@@ -79,19 +79,19 @@ public class GameBoard {
     public void shuffle() {
         Random random = new Random();
         // Gör 100 slumpmässiga förflyttningar
-        for (int i = 0; i < 100; i++) {
-            int direction   = random.nextInt(4); // 0=upp, 1=ner, 2=vänster, 3=höger
+        for (int i = 0; i < 500; i++) {
+            int direction = random.nextInt(4); // 0=upp, 1=ner, 2=vänster, 3=höger
 
-            if (direction   == 0) {
+            if (direction == 0 && emptyRow > 0) {
                 moveTile(emptyRow - 1, emptyColumn);
             }
-            else if (direction   == 1) {
+            else if (direction == 1 && emptyRow < 3) {
                 moveTile(emptyRow + 1, emptyColumn);
             }
-            else if (direction   == 2) {
+            else if (direction == 2 && emptyColumn > 0) {
                 moveTile(emptyRow, emptyColumn - 1);
             }
-            else {
+            else if (direction == 3 && emptyColumn < 3) {
                 moveTile(emptyRow, emptyColumn + 1);
             }
         }
