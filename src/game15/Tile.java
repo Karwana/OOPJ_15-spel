@@ -78,7 +78,7 @@ public class Tile {
         int correctRow = (number - 1) / 4;
         int correctCol = (number - 1) % 4;
 
-        return row == correctRow || col == correctCol;
+        return row == correctRow && col == correctCol;
     }
     // Vart borde brickan ligga (returna ett array, [rad,col])
     public int[] getCorrectPosition() {
@@ -129,10 +129,6 @@ public class Tile {
                 isEmpty() ? "[EMPTY]" : "",
                 isInCorrectPosition() ? "[CORRECT POSITION]" : "");
     }
-
-
-
-
 
 
 }
