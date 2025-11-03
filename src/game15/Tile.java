@@ -21,7 +21,7 @@ public class Tile {
         return currentRow;
     }
 
-    public int getCol() {
+    public int getCurrentColumn() {
         return currentColumn;
     }
     // Uppdatera brickans position när den flyttas
