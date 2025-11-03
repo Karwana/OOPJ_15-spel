@@ -39,7 +39,14 @@ public class Tile {
         int correctRow = (number - 1) / 4;
         int correctCol = (number - 1) % 4;
 
-        return currentRow == correctRow && currentColumn == correctCol;
+        // Kolla om nuvarande position matchar rätt position
+        if (currentRow == correctRow && currentColumn == correctCol) {
+            return true;
+        } else {
+            return false;
+        }
+
+
     }
 
 }
