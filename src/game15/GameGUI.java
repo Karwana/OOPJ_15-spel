@@ -1,4 +1,19 @@
 package game15;
 
-public class GameGUI {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class GameGUI extends JFrame implements ActionListener {
+
+
+
+
+
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 }
