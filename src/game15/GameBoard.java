@@ -98,18 +98,18 @@ public class GameBoard {
     }
 
     public boolean isGameWon() {
-        // Kolla alla brickor
+        // Tomma rutan MÅSTE vara på (3,3) för vinst
+        if (board[3][3] != null) {
+            return false;
+        }
+
+        // Kolla alla andra brickor
         for (int row = 0; row < 4; row++) {
             for (int column = 0; column < 4; column++) {
-
-                // Hoppa över tom ruta
-                if (row == 3 && column == 3) {
-                    continue;
-                }
-
-                // Använd Tile-klassens metod
-                if (!board[row][column].isInCorrectPosition()) {
-                    return false;
+                if (board[row][column] != null) {
+                    if (!board[row][column].isInCorrectPosition()) {
+                        return false;
+                    }
                 }
             }
         }
