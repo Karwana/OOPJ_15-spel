@@ -39,14 +39,14 @@ public class GameGUI extends JFrame implements ActionListener {
         }
         add(panel, BorderLayout.CENTER);
 
-
         setSize(600, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
 
         updateButtons();
     }
-        private void updateButtons() {
+
+    private void updateButtons() {
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 4; col++) {
                 Tile tile = game.getTile(row, col);
@@ -62,15 +62,39 @@ public class GameGUI extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        // New Game knapp
         if (e.getSource() == newGameButton) {
-            game.shuffle();
+            game.setupBoard();
             game.shuffle();
             updateButtons();
             return;
         }
+
+        // Change Theme knapp
+        if (e.getSource() == themeButton) {
+            // Lägg till färgval senare
+            return;
+        }
+
+        // Kolla vilken bricka som klickades
+        for (int row = 0; row < 4; row++) {
+            for (int col = 0; col < 4; col++) {
+                if (e.getSource() == buttons[row][col]) {
+                    // Försök flytta brickan
+                    game.moveTile(row, col);
+                    updateButtons();
+
+                    // Kolla om vunnet
+                    if (game.isGameWon()) {
+                        JOptionPane.showMessageDialog(this, "VICTORY!");
+                    }
+                    return;
+                }
+            }
+        }
     }
 
-    static void main() {
+    public static void main(String[] args) {
         new GameGUI();
     }
 }
