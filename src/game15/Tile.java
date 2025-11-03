@@ -2,15 +2,11 @@ package game15;
 
 public class Tile {
 
-    // Representerar en bricka (nummer, position)
-    // Hämta färg från inställningar
 
-    // Steg 1: Vad brickan ska komma ihåg?
-    private int number;
-    private int currentRow;
-    private int currentColumn;
+    private int number;            // Brickans nummer (1-15)
+    private int currentRow;        // Nuvarande rad (0-3)
+    private int currentColumn;     // Nuvarande kolumn (0-3)
 
-    // Steg 2: Hur skapar vi en bricka?
     public Tile(int number, int currentRow, int col) {
         this.number = number;
         this.currentRow = currentRow;
@@ -28,7 +24,7 @@ public class Tile {
     public int getCol() {
         return currentColumn;
     }
-
+    // Uppdatera brickans position när den flyttas
     public void setPosition(int row, int col) {
         this.currentRow = row;
         this.currentColumn = col;
@@ -41,9 +37,9 @@ public class Tile {
 
         // Kolla om nuvarande position matchar rätt position
         if (currentRow == correctRow && currentColumn == correctCol) {
-            return true;
+            return true; // Brickan är på rätt plats
         } else {
-            return false;
+            return false; // Brickan är på fel plats
         }
 
 
