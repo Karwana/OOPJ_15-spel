@@ -19,7 +19,7 @@ public class GameGUI extends JFrame implements ActionListener {
 
         JPanel topPanel = new JPanel();
         newGameButton = new JButton("New Game");
-        themeButton = new JButton("Theme");
+        themeButton = new JButton("Change Theme");
         newGameButton.addActionListener(this);
         themeButton.addActionListener(this);
         topPanel.add(newGameButton);
@@ -30,24 +30,44 @@ public class GameGUI extends JFrame implements ActionListener {
         buttons = new JButton[4][4];
 
         for (int row = 0; row < 4; row++) {
-            for (int col = 0; col < 4; col++) {
-                buttons[row][col] = new JButton();
-                buttons[row][col].addActionListener(this);
-                panel.add(buttons[row][col]);
+            for (int column = 0; column < 4; column++) {
+                buttons[row][column] = new JButton();
+                buttons[row][column].setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+                buttons[row][column].addActionListener(this);
+                panel.add(buttons[row][column]);
             }
         }
-
         add(panel, BorderLayout.CENTER);
 
 
-        setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(600, 600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+
+        updateButtons();
+    }
+        private void updateButtons() {
+        for (int row = 0; row < 4; row++) {
+            for (int col = 0; col < 4; col++) {
+                Tile tile = game.getTile(row, col);
+                if (tile != null) {
+                    buttons[row][col].setText(Integer.toString(tile.getNumber()));
+                }
+                else {
+                    buttons[row][col].setText("");
+                }
+            }
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == newGameButton) {
+            game.shuffle();
+            game.shuffle();
+            updateButtons();
+            return;
+        }
     }
 
     static void main() {
