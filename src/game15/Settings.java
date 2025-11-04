@@ -1,6 +1,5 @@
 package game15;
 
-import java.awt.*;
 import java.awt.Color;
 
 public class Settings {
@@ -49,16 +48,16 @@ public class Settings {
     }
 
     public void setLightTheme() {
-        tileColor = new Color(255, 255, 204);
-        emptyColor = new Color(255, 255, 153);
-        textColor = new Color(95, 246, 7, 255);
-        backgroundColor = new Color (255, 204, 0);
+        tileColor = new Color(119, 183, 246);
+        emptyColor = new Color(243, 239, 239);
+        textColor = new Color(255, 255, 255);
+        backgroundColor = new Color(200, 235, 255);
     }
 
     public void setColorfulTheme() {
-        tileColor = new Color(225, 14, 232);
-        emptyColor = new Color(55, 87, 246);
-        textColor = new Color(14, 232, 232);
-        backgroundColor = new Color (151, 58, 9);
+        tileColor = new Color(255, 102, 178);
+        emptyColor = new Color(102, 204, 255);
+        textColor = new Color(0, 51, 102);
+        backgroundColor = new Color(255, 255, 102);
     }
 }
