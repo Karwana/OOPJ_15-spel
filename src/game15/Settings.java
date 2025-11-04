@@ -48,4 +48,10 @@ public class Settings {
     public void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
+
+    public void setDarkTheme() {}
+
+    public void setLightTheme() {}
+
+    public void setColorfulTheme() {}
 }
