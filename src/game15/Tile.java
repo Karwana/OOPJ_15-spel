@@ -17,13 +17,6 @@ public class Tile {
         return number;
     }
 
-    public int getCurrentRow() {
-        return currentRow;
-    }
-
-    public int getCurrentColumn() {
-        return currentColumn;
-    }
     // Uppdatera brickans position när den flyttas
     public void setPosition(int row, int column) {
         this.currentRow = row;

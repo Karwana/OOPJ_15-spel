@@ -75,7 +75,6 @@ public class GameGUI extends JFrame implements ActionListener {
                 }
             }
         }
-        getContentPane().setBackground(settings.getBackgroundColor());
     }
 
     @Override
@@ -128,9 +127,5 @@ public class GameGUI extends JFrame implements ActionListener {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new GameGUI();
     }
 }
