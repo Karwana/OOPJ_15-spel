@@ -50,10 +50,10 @@ public class Settings {
     }
 
     public void setDarkTheme() {
-        tileColor = new Color(102, 102, 102);
-        emptyColor = new Color(204, 204, 204);
-        textColor = new Color(255, 204, 51);
-        backgroundColor = new Color (51, 51, 51);
+        tileColor = new Color(60, 63, 65);
+        emptyColor = new Color(25, 25, 25);
+        textColor = new Color(220, 220, 220);
+        backgroundColor = new Color(30, 30, 30);
     }
 
     public void setLightTheme() {
