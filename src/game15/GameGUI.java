@@ -32,7 +32,7 @@ public class GameGUI extends JFrame implements ActionListener {
         for (int row = 0; row < 4; row++) {
             for (int column = 0; column < 4; column++) {
                 buttons[row][column] = new JButton();
-                buttons[row][column].setFont(new Font("Comic Sans MS", Font.BOLD, 32));
+                buttons[row][column].setFont(new Font("Comic Sans MS", Font.BOLD, 30));
                 buttons[row][column].addActionListener(this);
                 panel.add(buttons[row][column]);
             }
@@ -41,6 +41,7 @@ public class GameGUI extends JFrame implements ActionListener {
 
         setSize(600, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
 
         updateButtons();
