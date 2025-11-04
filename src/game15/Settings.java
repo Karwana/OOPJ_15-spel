@@ -9,14 +9,6 @@ public class Settings {
     private Color textColor;
     private Color backgroundColor;
 
-
-    public Settings() { // Default Theme
-        tileColor = new Color(153,102,0);
-        emptyColor = new Color(153,153,153);
-        textColor = new Color(255,204,51);
-        backgroundColor = new Color(102,51,0);
-    }
-
     public Color getTileColor() {
         return tileColor;
     }
