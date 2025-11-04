@@ -59,14 +59,14 @@ public class Settings {
     public void setLightTheme() {
         tileColor = new Color(255, 255, 204);
         emptyColor = new Color(255, 255, 153);
-        textColor = new Color(255, 204, 51);
+        textColor = new Color(95, 246, 7, 255);
         backgroundColor = new Color (255, 204, 0);
     }
 
     public void setColorfulTheme() {
-        tileColor = new Color(51, 153, 255);
-        emptyColor = new Color(51, 204, 255);
-        textColor = new Color(255, 0, 0);
-        backgroundColor = new Color (153, 0, 0);
+        tileColor = new Color(225, 14, 232);
+        emptyColor = new Color(55, 87, 246);
+        textColor = new Color(14, 232, 232);
+        backgroundColor = new Color (151, 58, 9);
     }
 }
