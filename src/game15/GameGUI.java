@@ -10,9 +10,11 @@ public class GameGUI extends JFrame implements ActionListener {
     private GameBoard game;
     private JButton[][] buttons;
     private JButton newGameButton, themeButton;
+    private Settings settings;
 
     public GameGUI() {
         game = new GameBoard();
+        settings = new Settings();
         game.shuffle();
 
         setLayout(new BorderLayout());
