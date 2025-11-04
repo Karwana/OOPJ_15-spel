@@ -10,11 +10,11 @@ public class Settings {
     private Color backgroundColor;
 
 
-    public Settings() {
+    public Settings() { // Default Theme
         tileColor = new Color(153,102,0);
         emptyColor = new Color(153,153,153);
         textColor = new Color(255,204,51);
-        backgroundColor = new Color(153,153,153);
+        backgroundColor = new Color(102,51,0);
     }
 
     public Color getTileColor() {
@@ -49,9 +49,24 @@ public class Settings {
         this.backgroundColor = backgroundColor;
     }
 
-    public void setDarkTheme() {}
+    public void setDarkTheme() {
+        tileColor = new Color(102, 102, 102);
+        emptyColor = new Color(204, 204, 204);
+        textColor = new Color(255, 204, 51);
+        backgroundColor = new Color (51, 51, 51);
+    }
 
-    public void setLightTheme() {}
+    public void setLightTheme() {
+        tileColor = new Color(255, 255, 204);
+        emptyColor = new Color(255, 255, 153);
+        textColor = new Color(255, 204, 51);
+        backgroundColor = new Color (255, 204, 0);
+    }
 
-    public void setColorfulTheme() {}
+    public void setColorfulTheme() {
+        tileColor = new Color(51, 153, 255);
+        emptyColor = new Color(51, 204, 255);
+        textColor = new Color(255, 0, 0);
+        backgroundColor = new Color (153, 0, 0);
+    }
 }
