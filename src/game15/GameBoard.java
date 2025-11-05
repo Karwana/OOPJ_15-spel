@@ -78,7 +78,7 @@ public class GameBoard {
     // Blandar brickorna
     public void shuffle() {
         Random random = new Random();
-        // Gör 100 slumpmässiga förflyttningar
+        // Gör 500 slumpmässiga förflyttningar
         for (int i = 0; i < 500; i++) {
             int direction = random.nextInt(4); // 0=upp, 1=ner, 2=vänster, 3=höger
 
